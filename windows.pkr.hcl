@@ -157,7 +157,7 @@ source "vsphere-iso" "windows" {
 build {
   sources = ["source.vsphere-iso.windows"]
 
-  # if you would like to automatically install window updates, then remove uncomment 
+  # if you would like to automatically install window updates, then uncomment 
   # the following section. Please also uncomment Line 11-14 
 
   # provisioner "windows-update" {

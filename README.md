@@ -2,7 +2,7 @@
 
 This repo builds automatically Windows VM templates (Windows 11, Windows 10, Server 2019, Server 2022) for VMware vSphere environment using Hashicorp's Packer using freely available Windows Eval ISOs.  
 
-With this repo VM templates for the following Windows operating systems can by built.
+With this repo VM templates for the following Windows operating systems can be built.
 
 - Windows 10 Enterprise
 - Windows 11 Enterprise
@@ -28,7 +28,7 @@ nano variables.auto.pkrvars.hcl
 
 ### Step 2: Init Packer
 
-Init Packer by using the following command
+Init Packer by using the following command. (Spot the dot at the end of the command!)
 ```bash
 packer init .
 ``` 
@@ -40,7 +40,7 @@ For example to build a Windows 11 template run:
 ```bash
 ./build-11.sh
 ``` 
-If your are on a Windows machine then use the `build-*.ps1` files.
+If you are on a Windows machine then use the `build-*.ps1` files.
 
 
 ### Optional: Windows Template default credentials
@@ -82,7 +82,7 @@ After that you have to run `packer init .` again to automatically download the P
 packer init .
 ```
 
-## Window 11 - BypassTPMCheck
+## Windows 11 - BypassTPMCheck
 
 Normaly Windows 11 requires a TPM to get installed successfully. 
 VMware vSphere provides a virtualized TPM since Version 6.7 and later. 
