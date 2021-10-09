@@ -16,7 +16,7 @@ Windows ISO files gets download automatically from public sources.
 
 ### Pre-requesites 
 
-Download or `git clone https://github.com/andif888/packer-windows-vsphere-iso.git` this repo and make sure you have [Packer](https://www.packer.io/downloads) Version 1.7.1 or later installed. 
+Download or `git clone https://github.com/andif888/packer-windows-vsphere-iso.git` this repo and make sure you have [Packer](https://www.packer.io/downloads) Version 1.7.1 or later installed. If you don't know Packer, it's a single commandline binary which only needs to be on your `PATH`.
 
 ### Step 1: Adjust variables
 
