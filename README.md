@@ -88,22 +88,22 @@ Normaly Windows 11 requires a TPM to get installed successfully.
 VMware vSphere provides a virtualized TPM since Version 6.7 and later. 
 In this repo we do not configure a vTPM in vSphere for Windows 11.   
 Instead we use a easy workaround to turn off TPM check during Windows 11 installation.   
-In the [autounattend.xml](answer_files/11/en/autoanattend.xml) we add some registrykeys which effectively enable the **BypassTPMCheck** in Windows 11.
+In the [autounattend.xml](answer_files/11/en/autounattend.xml) we add some registrykeys which effectively enable the **BypassTPMCheck** in Windows 11.
 
 ```xml
-                <RunSynchronousCommand wcm:action="add">
-                    <Order>1</Order>
-                    <Description>BypassTPMCheck</Description>
-                    <Path>cmd /c reg add "HKLM\SYSTEM\Setup\LabConfig" /v "BypassTPMCheck" /t REG_DWORD /d 1</Path>
-                </RunSynchronousCommand>
-                <RunSynchronousCommand wcm:action="add">
-                    <Order>2</Order>
-                    <Description>BypassSecureBootCheck</Description>
-                    <Path>cmd /c reg add "HKLM\SYSTEM\Setup\LabConfig" /v "BypassSecureBootCheck" /t REG_DWORD /d 1</Path>
-                </RunSynchronousCommand>
-                <RunSynchronousCommand wcm:action="add">
-                    <Order>3</Order>
-                    <Description>BypassRAMCheck</Description>
-                    <Path>cmd /c reg add "HKLM\SYSTEM\Setup\LabConfig" /v "BypassRAMCheck" /t REG_DWORD /d 1</Path>
-                </RunSynchronousCommand>
+    <RunSynchronousCommand wcm:action="add">
+        <Order>1</Order>
+        <Description>BypassTPMCheck</Description>
+        <Path>cmd /c reg add "HKLM\SYSTEM\Setup\LabConfig" /v "BypassTPMCheck" /t REG_DWORD /d 1</Path>
+    </RunSynchronousCommand>
+    <RunSynchronousCommand wcm:action="add">
+        <Order>2</Order>
+        <Description>BypassSecureBootCheck</Description>
+        <Path>cmd /c reg add "HKLM\SYSTEM\Setup\LabConfig" /v "BypassSecureBootCheck" /t REG_DWORD /d 1</Path>
+    </RunSynchronousCommand>
+    <RunSynchronousCommand wcm:action="add">
+        <Order>3</Order>
+        <Description>BypassRAMCheck</Description>
+        <Path>cmd /c reg add "HKLM\SYSTEM\Setup\LabConfig" /v "BypassRAMCheck" /t REG_DWORD /d 1</Path>
+    </RunSynchronousCommand>
 ```
