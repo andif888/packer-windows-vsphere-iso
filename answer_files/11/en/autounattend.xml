@@ -114,6 +114,11 @@
                     <Path>a:\vmtools.cmd</Path>
                     <Order>1</Order>
                 </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <WillReboot>Never</WillReboot>
+                    <Path>cmd /c reg add HKLM\SOFTWARE\Polices\Microsoft\WindowStore /v AutoDownload /t REG_DWORD /d 2 /f</Path>
+                    <Order>2</Order>
+                </RunSynchronousCommand>
             </RunSynchronous>
         </component>
 		<component name="Microsoft-Windows-TerminalServices-LocalSessionManager" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -179,6 +184,12 @@
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>5</Order>
+                    <CommandLine>powershell -ExecutionPolicy Bypass -File a:\appx.ps1</CommandLine>
+                    <Description>Remove AppxPackages</Description>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>6</Order>
                     <CommandLine>powershell -ExecutionPolicy Bypass -File a:\setup.ps1</CommandLine>
                     <Description>Enable WinRM service</Description>
                     <RequiresUserInput>true</RequiresUserInput>

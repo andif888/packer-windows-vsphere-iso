@@ -128,7 +128,7 @@ source "vsphere-iso" "windows" {
   RAM_reserve_all       = true
   disk_controller_type  = ["pvscsi"]
   # firmware             = "bios"
-  floppy_files          = ["${var.autounattend_file}", "setup/setup.ps1", "setup/vmtools.cmd"]
+  floppy_files          = ["${var.autounattend_file}", "setup/setup.ps1", "setup/vmtools.cmd", "setup/appx.ps1"]
   floppy_img_path       = "${var.floppy_pvscsi}"
   guest_os_type         = "${var.vsphere_guest_os_type}"
   iso_checksum          = "${var.os_iso_checksum}"
