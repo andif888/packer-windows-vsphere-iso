@@ -5,7 +5,7 @@ packer {
       source = "github.com/hashicorp/vsphere"
     }
 
-    # if you would like to automatically install window updates, then uncomment 
+    # if you would like to automatically install window updates, then uncomment
     # the following section. Please also uncomment Line 163-170
 
     # windows-update = {
@@ -139,26 +139,30 @@ source "vsphere-iso" "windows" {
     network             = "${var.vsphere_network}"
     network_card        = "vmxnet3"
   }
-  
+
   storage {
     disk_size             = "${var.disk_size}"
     disk_thin_provisioned = true
-  } 
-  
+  }
+
   vm_name               = "${var.vsphere_vm_name}"
   convert_to_template   = "true"
   communicator          = "winrm"
   winrm_username        = "${var.winrm_username}"
   winrm_password        = "${var.winrm_password}"
   winrm_timeout         = "3h"
-  
+
+  shutdown_timeout      = "60m"
+
+  ip_wait_timeout       = "3h"
+  ip_settle_timeout     = "2m"
 }
 
 build {
   sources = ["source.vsphere-iso.windows"]
 
-  # if you would like to automatically install window updates, then uncomment 
-  # the following section. Please also uncomment Line 11-14 
+  # if you would like to automatically install window updates, then uncomment
+  # the following section. Please also uncomment Line 11-14
 
   # provisioner "windows-update" {
   #   search_criteria = "IsInstalled=0"
